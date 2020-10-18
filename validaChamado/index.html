@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validar</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+   <!--script de validação de formulario-->
+   <script>
+        function validaPesquisa(){
+            var pesquisait = document.getElementById("pesquisait");
+            if(pesquisait.value == ""){
+                alert("Numero da IT não informado");
+                pesquisait.focus();
+                
+            }else if (pesquisait.value.length <= 7 || pesquisait.value.length > 8 ){
+                alert("Numero da IT incorreto");
+                pesquisait.focus();
+            }
+
+        }
+        function validaenviar(){
+            var exampleFormControlTextarea1 = document.getElementById("exampleFormControlTextarea1");
+            if(exampleFormControlTextarea1.value == ""){
+                alert("Conteudo do e-mail não informado");
+                exampleFormControlTextarea1.focus();
+            }
+        }    
+        
+    //script para inserir texto no textarea
+        function inserirText(value=""){
+            switch (value) {
+                case "1":
+                document.getElementById("exampleFormControlTextarea1").innerHTML="Prezado, poderia testar e validar se seus acessos ao SAP estão de acordo?"
+                    break;
+                case "2":
+                document.getElementById("exampleFormControlTextarea1").innerHTML="GCA"
+                    break;
+                case "3":
+                document.getElementById("exampleFormControlTextarea1").innerHTML="Correção de Sistema"
+                    break;
+                case "4":
+                document.getElementById("exampleFormControlTextarea1").innerHTML="Normalização de IN critico"
+                    break;
+                case "5":
+                document.getElementById("exampleFormControlTextarea1").innerHTML="Web"
+                    break;
+            }
+        }
+
+        
+    </script>
+
+</head>
+<body>
+</br>
+    <div class="container">
+        <form action="" method="post" name="formulario">
+            <div class="col-5">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Numero da IT</span>
+                </div>
+                <input type="text" aria-label="First name" class="form-control" id="pesquisait" placeholder="IT0000000000">
+                <button button type="button" class="btn btn-outline-warning" onclick="validaPesquisa()">PESQUISAR</button>
+              </div>
+            </div>
+        </br>
+        <div div class="col-12">
+            <table class="table table-striped table-dark">
+            <thead>
+                <tr class="bg-info">
+                    <th scope="col" colspan="">IT012342568</th> 
+                    <th scope="col" colspan="3">IN253486</th>
+                </tr>
+                <tr>
+                    <th scope="col">Matricula</th>
+                    <th scope="col">Nome solicitante</th>
+                    <th scope="col">E-mail solicitante</th>
+                    <th scope="col">Selecionar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>u409466</td>
+                    <td>Julio Cesar Rocha Silva</td>
+                    <td>julio.silva@brbservicos.com.br</td>
+                    <td>
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off " checked> selecionar
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="col">Matricula</th>
+                    <th scope="col">Nome usuario</th>
+                    <th scope="col">E-mail usuario</th>
+                    <th scope="col">Selecionar</th>
+                </tr>
+                <tr>   
+                    <td>u401802</td>
+                    <td>Cintia Paiva de Odim</td>
+                    <td>cintia.paiva@brbservicos.com.br</td>
+                    <td>  
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option2" autocomplete="off" checked> selecionar
+                        </label>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+            <div class="col-2">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Utilizar texto padrão</label>
+                    <select class="form-control" id="exampleFormControlSelect1" onchange="inserirText(this.value)">
+                    <option >Selecionar</option>
+                    <option value="1">Acesso SAP</option>
+                    <option value="2">Configuração GCA</option>
+                    <option value="3">Correção de Sistema</option>
+                    <option value="4">Normalização de IN critico</option>
+                    <option value="5">Web</option>
+                    </select>
+                </div>
+            </div>
+            <div div class="col-12">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Conteudo do e-mail</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>        
+            </div>
+            <div div class="col-4">
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Anexar arquivo</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">N° de tentativas:</label>
+                    <input type="radio" name="options" id="option1" autocomplete="off " checked> 1x
+                    <input type="radio" name="options" id="option1" autocomplete="off " checked> 2x
+                    <input type="radio" name="options" id="option1" autocomplete="off " checked> 3x
+                </div>
+            </div>
+
+            <div div class="col-4">
+                <button type="button" class="btn btn-outline-success" id="enviar" onclick="validaenviar()">ENVIAR</button>
+            </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
